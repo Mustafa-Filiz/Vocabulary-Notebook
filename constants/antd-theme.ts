@@ -164,7 +164,6 @@ const theme: ThemeConfig = {
     borderRadius: 8, // DEFAULT 0.5rem
     borderRadiusSM: 4, // sm      0.25rem
     borderRadiusLG: 12, // md      0.75rem
-    borderRadiusXL: 16, // lg      1rem
     borderRadiusOuter: 4,
 
     // ── Shadow / Elevation ────────────────────────────────────────────────────
@@ -180,7 +179,6 @@ const theme: ThemeConfig = {
     motionDurationSlow: "240ms",
     motionEaseInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
     motionEaseOut: "cubic-bezier(0, 0, 0.2, 1)",
-    motionEaseIn: "cubic-bezier(0.4, 0, 1, 1)",
 
     // ── Control / Touch Target ────────────────────────────────────────────────
     // Minimum 48px (DESIGN.md)
