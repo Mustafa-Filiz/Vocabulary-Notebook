@@ -9,7 +9,7 @@ async function LevelPage({ params }: { params: Promise<{ level: string }> }) {
   return (
     <div>
       <PageHeader title={`${level} Words`} hasBackButton />
-      <div className="words-area flex flex-col gap-2">
+      <div className="words-area flex flex-col gap-2 py-2">
         {words?.map((word) => (
           <WordCard key={word.id} word={word} />
         ))}

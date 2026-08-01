@@ -26,11 +26,9 @@ export default function RootLayout({
     <html lang="en" className={`${beVietnamPro.variable} h-full antialiased`}>
       <AntdRegistry>
         <ConfigProvider theme={theme}>
-          <body className="relative m-auto min-h-full max-w-100 flex flex-col py-18">
-            <main className=" p-4">
-              {children}
-              <NavBar />
-            </main>
+          <body className="relative m-auto h-screen max-w-100 grid grid-rows-[1fr_auto]">
+            <main className="overflow-y-auto">{children}</main>
+            <NavBar />
           </body>
         </ConfigProvider>
       </AntdRegistry>

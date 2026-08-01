@@ -35,7 +35,7 @@ function NavBar() {
       selectedKeys={[pathName.split("/").slice(0, 2).join("/")]}
       multiple
       classNames={{
-        root: "fixed right-2 left-2 bottom-4 z-40 rounded-2xl justify-evenly",
+        root: "sticky right-4 left-4 bottom-4 z-40 rounded-2xl justify-center",
       }}
     />
   );

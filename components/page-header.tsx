@@ -13,14 +13,14 @@ function PageHeader({ title, hasBackButton = false }: PageHeaderProps) {
   const router = useRouter();
 
   return (
-    <div className="fixed top-0 right-0 left-0 z-10 bg-white flex items-center p-4 border-b-2 shadow-2xs h-16">
+    <div className="sticky top-0 right-0 left-0 z-10 bg-white flex items-center p-4 border-b-2 shadow-2xs h-16">
       {hasBackButton ? (
         <Button
           shape="circle"
           type="text"
           icon={<IoArrowBackOutline size={24} />}
           onClick={() => router.back()}
-          className="absolute left-4 top-1/2 -translate-y-1/2 h-8! w-8!"
+          className="absolute left-0"
         />
       ) : null}
       <Typography.Title

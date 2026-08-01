@@ -11,7 +11,7 @@ async function LearnContainer() {
   return (
     <div>
       <PageHeader title="Welcome" />
-      <div className="level-card-area grid grid-cols-2 gap-2">
+      <div className="level-card-area grid grid-cols-2 gap-2 py-2">
         {levels.map((item) => (
           <Link key={item.level} href={`/learn/${item.level}`}>
             <LevelCard level={item.level} wordCount={item.wordCount} />
