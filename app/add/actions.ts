@@ -3,6 +3,7 @@
 import { Level } from "@/generated/prisma/client";
 import { enrichWords, generateWords } from "@/lib/gen-ai";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function listWords() {}
 
@@ -26,7 +27,9 @@ export async function addWordsWithAi(formData: FormData) {
     skipDuplicates: true,
   });
 
-  console.log("🚀 ~ addWordsWithAi ~ result:", result);
+  revalidatePath("/learn");
+
+  window.alert("New words added.");
 }
 
 export async function addWordsFromList(formData: FormData) {
@@ -49,5 +52,7 @@ export async function addWordsFromList(formData: FormData) {
     skipDuplicates: true,
   });
 
-  console.log("🚀 ~ addWordsFromList ~ result:", result);
+  revalidatePath("/learn");
+
+  window.alert("New words added.");
 }

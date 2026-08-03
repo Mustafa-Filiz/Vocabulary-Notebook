@@ -1,6 +1,6 @@
 import PageHeader from "@/components/page-header";
-import WordCard from "@/components/word-card";
-import { getWordsByLevel } from "@/services/get-words-by-level";
+import { getWordsByLevel } from "../actions";
+import LevelContainer from "@/features/level";
 
 async function LevelPage({ params }: { params: Promise<{ level: string }> }) {
   const { level } = await params;
@@ -9,10 +9,8 @@ async function LevelPage({ params }: { params: Promise<{ level: string }> }) {
   return (
     <div>
       <PageHeader title={`${level} Words`} hasBackButton />
-      <div className="words-area flex flex-col gap-2 py-2">
-        {words?.map((word) => (
-          <WordCard key={word.id} word={word} />
-        ))}
+      <div className="words-area flex flex-col gap-2 pt-2 pb-8">
+        <LevelContainer words={words} />
       </div>
     </div>
   );

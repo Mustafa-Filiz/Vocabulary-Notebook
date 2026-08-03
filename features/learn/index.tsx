@@ -1,6 +1,6 @@
+import { getLevels } from "@/app/learn/actions";
 import LevelCard from "@/components/level-card";
 import PageHeader from "@/components/page-header";
-import { getLevels } from "@/services/get-levels";
 import { Button } from "antd";
 import Link from "next/link";
 import { FaRegCirclePlay } from "react-icons/fa6";
