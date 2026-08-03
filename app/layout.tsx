@@ -25,16 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${beVietnamPro.variable} h-full antialiased`}>
-      <AntdRegistry>
-        <ConfigProvider theme={theme}>
-          <body className="relative m-auto h-screen max-w-100 grid grid-rows-[1fr_auto]">
-            <main className="overflow-y-auto">{children}</main>
-            <Suspense fallback={<div>Loading...</div>}>
-              <NavBar />
-            </Suspense>
-          </body>
-        </ConfigProvider>
-      </AntdRegistry>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AntdRegistry>
+          <ConfigProvider theme={theme}>
+            <body className="relative m-auto h-screen max-w-100 grid grid-rows-[1fr_auto]">
+              <main className="overflow-y-auto">{children}</main>
+              <Suspense fallback={<div>Loading...</div>}>
+                <NavBar />
+              </Suspense>
+            </body>
+          </ConfigProvider>
+        </AntdRegistry>
+      </Suspense>
     </html>
   );
 }
