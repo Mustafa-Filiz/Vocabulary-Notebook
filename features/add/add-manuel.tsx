@@ -5,19 +5,25 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import SubmitButton from "./submit-button";
 import { addWordsFromList } from "@/app/add/actions";
 import { useActionState, useEffect } from "react";
+import { useForm } from "antd/es/form/Form";
 
-const initialState = { success: false, message: "qwer" };
+const initialState = { success: false, message: "" };
 
 function AddManuel() {
   const [state, formAction] = useActionState(addWordsFromList, initialState);
 
+  const [form] = useForm();
+
   useEffect(() => {
+    if (state.message.length === 0) return;
+
     if (state.success === true) {
       message.success(state.message);
+      form.resetFields();
     } else if (state.success === false) {
       message.error(state.message);
     }
-  }, [state]);
+  }, [state, form]);
 
   return (
     <div className="flex flex-col gap-2 rounded-2xl p-2 shadow-md">
@@ -28,7 +34,7 @@ function AddManuel() {
         Type any German words with commas in between
       </Typography.Paragraph>
       <form action={formAction}>
-        <Form component={false}>
+        <Form form={form} component={false}>
           <Form.Item name="words-input">
             <Input.TextArea name="words-input" rows={5} />
           </Form.Item>

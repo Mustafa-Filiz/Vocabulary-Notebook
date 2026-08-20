@@ -9,7 +9,10 @@ export async function getLevels() {
     by: ["level"],
     _count: { id: true },
     where: {
-      level: { not: undefined },
+      AND: {
+        level: { not: undefined },
+        learnedAt: null,
+      },
     },
     orderBy: {
       level: "asc",

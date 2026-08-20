@@ -6,20 +6,26 @@ import { Checkbox, Form, message, Typography } from "antd";
 import { GrGenai } from "react-icons/gr";
 import SubmitButton from "./submit-button";
 import { useActionState, useEffect, useState } from "react";
+import { useForm } from "antd/es/form/Form";
 
-const initialState = { success: false, message: "asdf" };
+const initialState = { success: false, message: "" };
 
 function AddWithAI() {
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
   const [state, formAction] = useActionState(addWordsWithAi, initialState);
 
+  const [form] = useForm();
+
   useEffect(() => {
+    if (state.message.length === 0) return;
+
     if (state.success === true) {
       message.success(state.message);
+      form.resetFields();
     } else if (state.success === false) {
       message.error(state.message);
     }
-  }, [state]);
+  }, [state, form]);
 
   return (
     <div className="flex flex-col gap-2 rounded-2xl p-2 shadow-md">
@@ -30,7 +36,7 @@ function AddWithAI() {
         Select levels that you want to add to your library
       </Typography.Paragraph>
       <form action={formAction}>
-        <Form component={false}>
+        <Form form={form} component={false}>
           <Form.Item label="Levels">
             <Checkbox.Group
               options={["A1", "B1", "C1", "A2", "B2", "C2"]}
