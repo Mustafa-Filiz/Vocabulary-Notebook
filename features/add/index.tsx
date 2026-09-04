@@ -5,10 +5,10 @@ import PageHeader from "@/components/page-header";
 
 async function AddContainer() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-2 pb-4">
       <PageHeader title="Add New Words" />
       <AddWithAI />
-      <Divider>or</Divider>
+      <Divider className="m-0!">or</Divider>
       <AddManuel />
     </div>
   );

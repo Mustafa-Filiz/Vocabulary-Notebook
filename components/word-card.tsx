@@ -26,6 +26,7 @@ function WordCard({ word, markAsLearned }: WordCardProps) {
         </>
       }
       classNames={{
+        root: word.learnedAt ? "opacity-50" : "",
         title: word.article ? ARTICLE_COLOR[word.article] : "",
         body: "flex flex-col gap-2",
       }}

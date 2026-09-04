@@ -11,7 +11,6 @@ export async function getLevels() {
     where: {
       AND: {
         level: { not: undefined },
-        learnedAt: null,
       },
     },
     orderBy: {
@@ -34,11 +33,11 @@ export async function getWordsByLevel(level: string) {
     where: {
       AND: {
         level,
-        learnedAt: null,
       },
     },
     orderBy: {
-      createdAt: "desc",
+      // createdAt: "desc",
+      learnedAt: "desc",
     },
   });
 
